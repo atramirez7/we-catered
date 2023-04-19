@@ -8,7 +8,7 @@ class TodoForm(ModelForm):
             "name",
         )
 
-class TodoItem(ModelForm):
+class TodoItemForm(ModelForm):
     class Meta:
         model = TodoItem
         fields = {
