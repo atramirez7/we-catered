@@ -19,7 +19,7 @@ def todo_list_detail(request, id):
     }
     return render(request, "todos/detail.html", context)
 
-def add_todo(request):
+def todo_list_create(request):
     if request.method == "POST":
         form = TodoForm(request.POST)
         if form.is_valid():
@@ -32,7 +32,7 @@ def add_todo(request):
     }
     return render(request, "todos/create.html", context)
 
-def edit_todo(request, id):
+def todo_list_update(request, id):
     list = get_object_or_404(TodoList, id=id)
     if request.method == "POST":
         form = TodoForm(request.POST, instance=list)
@@ -47,7 +47,7 @@ def edit_todo(request, id):
     }
     return render(request, "todos/edit.html", context)
 
-def delete_todo(request, id):
+def todo_list_delete(request, id):
     list = get_object_or_404(TodoList, id=id)
     if request.method == "POST":
         list.delete()
@@ -67,7 +67,7 @@ def todo_item_create(request):
     }
     return render(request, "items/create.html", context)
 
-def todo_item_edit(request, id):
+def todo_item_update(request, id):
     item = get_object_or_404(TodoItem, id=id)
     if request.method == "POST":
         form = TodoItemForm(request.POST, instance=item)
